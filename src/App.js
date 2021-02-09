@@ -1,13 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-
 import React from 'react';
-import images from './data.js';
-import HornedHeader from './HornedHeader/HornedHeader.js';
-import ImageList from './ImageList/ImageList.js';
-
-
-
+import './App.css';
+// import images from './data.js';
+import HornedHeader from './HornedHeader.js';
+import ImageList from './ImageList.js';
+import YoshiEgg from './598-5981895_yoshi-egg-yoshi-egg-pixel-art-hd-png.png';
 
 
 export default class HornGallery extends React.Component {
@@ -15,9 +11,9 @@ export default class HornGallery extends React.Component {
     return (
       <div>
         <HornedHeader />
-        <ImageList />
+        <ImageList src={YoshiEgg} height="100" />
       </div>
-    )
+    );
   }
 }
 
