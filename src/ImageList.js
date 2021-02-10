@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageItem from './ImageItem.js';
+import style from './ImageList.css';
 
 
 export default class ImageList extends React.Component {
@@ -8,7 +9,7 @@ export default class ImageList extends React.Component {
         const imageListItem = this.props.images.map(image => <ImageItem image={image} />)
 
         return (
-            <ul>
+            <ul className="list-area">
                 {imageListItem}
             </ul>
 

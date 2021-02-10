@@ -1,9 +1,8 @@
 import React from 'react';
-import './App.css';
+import style from './App.css';
 import images from './data.js';
 import HornedHeader from './HornedHeader.js';
 import ImageList from './ImageList.js';
-
 
 
 export default class HornGallery extends React.Component {
@@ -20,7 +19,6 @@ export default class HornGallery extends React.Component {
   }
 
 
-
   render() {
 
     const imageTitles = images.map(image =>
@@ -35,19 +33,10 @@ export default class HornGallery extends React.Component {
     });
 
 
-    // const creatureNodes = filteredCreatures.map(image =>
-    //   <ImageList key={images.keyword} images={images} />);
-
-
     return (
       <div>
         <HornedHeader />
-
-        {/* <ul className="zoo">
-          {creatureNodes}
-        </ul> */}
-
-        <form>
+        <form className="nav-filter">
           Keyword
           <select
             value={this.state.keyword}
@@ -57,59 +46,7 @@ export default class HornGallery extends React.Component {
         </form>
         <ImageList images={filteredCreatures} />
 
-        <div>
-          Keyword: {this.state.keyword}
-        </div>
       </div>
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
