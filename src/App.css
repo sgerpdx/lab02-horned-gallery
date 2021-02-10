@@ -44,4 +44,5 @@ body {
 .nav-filter {
   background-color: rgb(48, 26, 26);
   color: white;
+  display: inline;
 }

@@ -18,6 +18,12 @@ export default class HornGallery extends React.Component {
     });
   }
 
+  handleHornsChange = (e) => {
+    this.setState({
+      horns: e.target.value
+    });
+  }
+
 
   render() {
 
@@ -25,6 +31,9 @@ export default class HornGallery extends React.Component {
       <option value={image.keyword} key={image.title}>{image.keyword}
       </option>)
 
+    const hornCounts = images.map(image =>
+      <option value={image.horns} key={image.title}>{image.horns}
+      </option>)
 
     const filteredCreatures = images.filter((image) => {
       if (!this.state.keyword) return true;
@@ -40,10 +49,21 @@ export default class HornGallery extends React.Component {
           Keyword
           <select
             value={this.state.keyword}
+            //replace onChange with farmed-out handleChange:
             onChange={this.handleKeywordChange}>
             {imageTitles}
           </select>
         </form>
+
+        <form className="nav-filter">
+          Horn Count
+          <select
+            value={this.state.horns}
+            onChange={this.handleHornsChange}>
+            {hornCounts}
+          </select>
+        </form>
+
         <ImageList images={filteredCreatures} />
 
       </div>
