@@ -3,6 +3,7 @@ import style from './App.css';
 import images from './data.js';
 import HornedHeader from './HornedHeader.js';
 import ImageList from './ImageList.js';
+import Dropdown from './Dropdown.js';
 
 
 export default class HornGallery extends React.Component {
@@ -27,13 +28,13 @@ export default class HornGallery extends React.Component {
 
   render() {
 
-    const imageTitles = images.map(image =>
-      <option value={image.keyword} key={image.title}>{image.keyword}
-      </option>)
+    // const imageTitles = images.map(image =>
+    //   <option value={image.keyword} key={image.title}>{image.keyword}
+    //   </option>)
 
-    const hornCounts = images.map(image =>
-      <option value={image.horns} key={image.title}>{image.horns}
-      </option>)
+    // const hornCounts = images.map(image =>
+    //   <option value={image.horns} key={image.title}>{image.horns}
+    //   </option>)
 
     const filteredCreatures = images.filter((image) => {
       if (!this.state.keyword) return true;
@@ -45,23 +46,31 @@ export default class HornGallery extends React.Component {
     return (
       <div>
         <HornedHeader />
+
         <form className="nav-filter">
           Keyword
-          <select
+          <Dropdown currentValue={this.state.keyword}
+            handleChange={this.handleKeywordChange}
+            options={['horse', 'cow']} />
+          {/* <select
             value={this.state.keyword}
             //replace onChange with farmed-out handleChange:
             onChange={this.handleKeywordChange}>
             {imageTitles}
-          </select>
+          </select> */}
         </form>
 
         <form className="nav-filter">
           Horn Count
-          <select
+          <Dropdown currentValue={this.state.keyword}
+            handleChange={this.handleKeywordChange}
+            options={[1, 2, 3, 100]} />
+
+          {/* <select
             value={this.state.horns}
             onChange={this.handleHornsChange}>
             {hornCounts}
-          </select>
+          </select> */}
         </form>
 
         <ImageList images={filteredCreatures} />
