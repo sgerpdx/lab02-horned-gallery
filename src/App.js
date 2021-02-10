@@ -21,7 +21,7 @@ export default class HornGallery extends React.Component {
 
   handleHornsChange = (e) => {
     this.setState({
-      horns: e.target.value
+      horns: Number(e.target.value)
     });
   }
 
@@ -37,8 +37,20 @@ export default class HornGallery extends React.Component {
     //   </option>)
 
     const filteredCreatures = images.filter((image) => {
-      if (!this.state.keyword) return true;
-      if (image.keyword === this.state.keyword) return true;
+      if (!this.state.keyword && !this.state.horns) return true;
+
+      if (this.state.keyword && !this.state.horns) {
+        if (image.keyword === this.state.keyword) return true;
+      }
+
+      if (!this.state.keyword && this.state.horns) {
+        if (image.horns === this.state.horns) return true;
+      }
+
+      if (this.state.keyword && this.state.horns) {
+        if (image.keyword === this.state.keyword && image.horns === this.state.horns) return true;
+      }
+
       return false;
     });
 
@@ -51,26 +63,14 @@ export default class HornGallery extends React.Component {
           Keyword
           <Dropdown currentValue={this.state.keyword}
             handleChange={this.handleKeywordChange}
-            options={['horse', 'cow']} />
-          {/* <select
-            value={this.state.keyword}
-            //replace onChange with farmed-out handleChange:
-            onChange={this.handleKeywordChange}>
-            {imageTitles}
-          </select> */}
+            options={['narwhal', 'rhino', 'unicorn']} />
         </form>
 
         <form className="nav-filter">
           Horn Count
-          <Dropdown currentValue={this.state.keyword}
-            handleChange={this.handleKeywordChange}
+          <Dropdown currentValue={this.state.horns}
+            handleChange={this.handleHornsChange}
             options={[1, 2, 3, 100]} />
-
-          {/* <select
-            value={this.state.horns}
-            onChange={this.handleHornsChange}>
-            {hornCounts}
-          </select> */}
         </form>
 
         <ImageList images={filteredCreatures} />
@@ -79,3 +79,12 @@ export default class HornGallery extends React.Component {
     );
   }
 }
+
+
+
+
+{/* <select
+            value={this.state.horns}
+            onChange={this.handleHornsChange}>
+            {hornCounts}
+          </select> */}
