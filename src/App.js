@@ -7,20 +7,64 @@ import ImageList from './ImageList.js';
 
 
 export default class HornGallery extends React.Component {
+
+  state = {
+    keyword: '',
+    horns: '',
+  }
+
+  handleKeywordChange = (e) => {
+    this.setState({
+      keyword: e.target.value
+    });
+  }
+
+
+
   render() {
-    console.log(images);
+
+    const imageTitles = images.map(image =>
+      <option value={image.keyword} key={image.title}>{image.keyword}
+      </option>)
+
+
+    const filteredCreatures = images.filter((image) => {
+      if (!this.state.keyword) return true;
+      if (image.keyword === this.state.keyword) return true;
+      return false;
+    });
+
+
+    // const creatureNodes = filteredCreatures.map(image =>
+    //   <ImageList key={images.keyword} images={images} />);
+
+
     return (
       <div>
         <HornedHeader />
-        <ImageList images={images} />
+
+        {/* <ul className="zoo">
+          {creatureNodes}
+        </ul> */}
+
+        <form>
+          Keyword
+          <select
+            value={this.state.keyword}
+            onChange={this.handleKeywordChange}>
+            {imageTitles}
+          </select>
+        </form>
+        <ImageList images={filteredCreatures} />
+
+        <div>
+          Keyword: {this.state.keyword}
+        </div>
       </div>
     );
   }
 }
 
-
-// const imageItems = images.map(image =>
-//   <img src={image.url} />)
 
 
 
