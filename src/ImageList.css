@@ -1,0 +1,4 @@
+.list-area {
+    display: flex;
+    flex-wrap: wrap;
+}
