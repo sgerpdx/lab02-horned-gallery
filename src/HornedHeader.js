@@ -1,18 +1,20 @@
 import React from 'react';
+import images from './data.js';
 
 export default class HornedHeader extends React.Component {
     render() {
+
+        const imageTitles = images.map(image =>
+            <option value={image.keyword} key={image.title}>{image.keyword}
+            </option>)
+
         return (
             <>
-                <p><h2>Ye Gallerie of Horn'ed Creatures</h2></p>
-                {/* <form>
+                <h2>Ye Gallerie of Horn'ed Creatures</h2>
+                <form>
                     Keyword
-                <select>
-                        <option value="narwhal">Narwhal</option>
-                        <option value="rhino">Rhino</option>
-                        <option value="unicorn">Unicorn</option>
-                    </select>
-                </form> */}
+                    <select>{imageTitles}</select>
+                </form>
             </>
         );
     }

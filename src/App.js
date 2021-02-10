@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-// import images from './data.js';
+import images from './data.js';
 import HornedHeader from './HornedHeader.js';
 import ImageList from './ImageList.js';
 
@@ -8,17 +8,19 @@ import ImageList from './ImageList.js';
 
 export default class HornGallery extends React.Component {
   render() {
+    console.log(images);
     return (
       <div>
         <HornedHeader />
-        <ImageList />
+        <ImageList images={images} />
       </div>
     );
   }
 }
 
 
-
+// const imageItems = images.map(image =>
+//   <img src={image.url} />)
 
 
 

@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
-import GreenFlask from './dotpict_20210204_003409.png';
+import React from 'react';
+import ImageItem from './ImageItem.js';
+
 
 export default class ImageList extends React.Component {
     render() {
+
+        const imageListItem = this.props.images.map(image => <ImageItem image={image} />)
+
         return (
-            <div>
-                <img src={GreenFlask} alt="green flask" height="100" />
-            </div>
+            <ul>
+                {imageListItem}
+            </ul>
+
         )
     }
 }
