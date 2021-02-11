@@ -1,17 +1,11 @@
 import React from 'react';
 import style from './Dropdown.css';
-import images from './data.js';
+//import images from './data.js';
 
 
 
 export default class Dropdown extends React.Component {
     render() {
-
-        // const imageProperties = images.map(image =>
-        //     <option value={image.currentValue}
-        //         key={image.title}>{image.currentValue}
-        //     </option>)
-
 
         return (
             <select
@@ -25,7 +19,6 @@ export default class Dropdown extends React.Component {
                     )
                 }
 
-                {/* {imageProperties} */}
             </select>
 
         )

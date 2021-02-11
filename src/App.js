@@ -28,13 +28,9 @@ export default class HornGallery extends React.Component {
 
   render() {
 
-    // const imageTitles = images.map(image =>
-    //   <option value={image.keyword} key={image.title}>{image.keyword}
-    //   </option>)
-
-    // const hornCounts = images.map(image =>
-    //   <option value={image.horns} key={image.title}>{image.horns}
-    //   </option>)
+    const imageTitles = images.map(image =>
+      <option value={image.keyword} key={image.title}>{image.keyword}
+      </option>)
 
     const filteredCreatures = images.filter((image) => {
       if (!this.state.keyword && !this.state.horns) return true;
@@ -63,7 +59,7 @@ export default class HornGallery extends React.Component {
           Keyword
           <Dropdown currentValue={this.state.keyword}
             handleChange={this.handleKeywordChange}
-            options={['narwhal', 'rhino', 'unicorn']} />
+            options={['narwhal', 'rhino', 'unicorn', 'unilego', 'triceratops', 'markhor', 'mouflon', 'addax', 'chameleon', 'lizard', 'dragon']} />
         </form>
 
         <form className="nav-filter">
@@ -79,12 +75,3 @@ export default class HornGallery extends React.Component {
     );
   }
 }
-
-
-
-
-{/* <select
-            value={this.state.horns}
-            onChange={this.handleHornsChange}>
-            {hornCounts}
-          </select> */}
